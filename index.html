@@ -1,0 +1,66 @@
+<!doctype html>
+<html ng-app="app">
+	<head>
+		<title>Project Planner</title>
+		<meta charset="utf-8">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/factories.js"></script>
+		<script src="js/filters.js"></script>
+		<script src="js/controllers.js"></script>
+		<link rel="stylesheet" href="css/index.css">
+	</head>
+	<body>
+		<div class="container">
+			
+			<h2 class="text-center">Project Planner</h2>
+			<!-- view //-->
+			<div ng-view></div>
+
+			<!-- testing only //-->
+			<div id="test-box">
+				<form ng-controller="testCtrl">
+					<h4>TEST - Switch User/Group To :</h4>
+					<div class="radio">
+						<label for="grp-mad" ng-click="switchUser('mad.member@kensington.com')">
+							<input type="radio" name="groups" id="grp-mad" checked="true">mad.member@kensington.com (MAD)
+						</label>
+					</div>
+					<div class="radio">
+						<label for="grp-nis" ng-click="switchUser('nis.member@kensington.com')">
+							<input type="radio" name="groups" id="grp-nis">nis.member@kensington.com (NIS)
+						</label>
+					</div>
+					<div class="radio">
+						<label for="grp-mar" ng-click="switchUser('mar.member@kensington.com')">
+							<input type="radio" name="groups" id="grp-mar">mar.member@kensington.com (MAR)
+						</label>
+					</div>
+					<div class="radio">
+						<label for="grp-gdm" ng-click="switchUser('gdm.member@kensington.com')">
+							<input type="radio" name="groups" id="grp-gdm">gdm.member@kensington.com (GDM)
+						</label>
+					</div>
+				</form>
+			</div>
+
+			<div>
+				<h4>How it works</h4>
+				<p>There are 4 groups (MAD, NIS, MAR, GDM) and then the LIV (Live) column. In order for each group to update their column, the previous group must complete their tasks. The current user can only see checkmarks of the previous columns - they cannot edit any column other than their own.</p>
+				<h4>How to use</h4>
+				<ol>
+					<li>Starting off as a MAD member, click the <em>info</em> link and complete the test form</li>
+					<li>After "submitting", you will be taken back to the main page. From there, switch the view to the next group (e.g. NIS) to see what they would see</li>
+					<li>Continue the process until you get to the LIV column. The link in this column shows a summary</li>
+				</ol>
+			</div>
+
+		</div>
+
+	</body>
+</html>

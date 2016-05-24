@@ -1,0 +1,124 @@
+<div ng-controller="DetailsCtrl" class="border padding10 wide600">
+
+	<div ng-show="{{ show_summary == false }}" ng-class="fadein">
+
+		<!-- mad //-->
+		<form ng-submit="submitMAD()" name="mad_form" ng-show="current_user_grp === 'mad'">
+
+			<h3 class="text-center">MAD</h3>
+			* All fields are required<br>
+			<input type="checkbox" name="cb1" required> test 1
+			<p class="comment">
+			And a whole lot<br>
+			 more stuff<br>
+			here</p>
+			<label for="cb1"><span ng-show="mad_form.cb1.$touched && mad_form.cb1.$invalid"><br>The field above is required</span></label>
+
+			<div class="text-center">
+				<div class="btn-group">
+					<input type="button" class="btn btn-default" value="Back" ng-click="go('/')">
+					<input type="submit" class="btn btn-primary">
+				</div>
+			</div>
+
+		</form>
+		<!-- end mad //-->
+
+		<!-- nis //-->
+		<form ng-submit="submitNIS()" name="nis_form" ng-show="current_user_grp === 'nis'">
+			
+			<h3 class="text-center">NIS</h3>
+			* All fields are required<br>
+			<input type="checkbox" name="cb1" required> test 1
+			<p class="comment">
+			And a whole lot<br>
+			 more stuff<br>
+			here</p>
+			<label for="cb1"><span ng-show="nis_form.cb1.$touched && nis_form.cb1.$invalid"><br>The field above is required</span></label>
+
+			<div class="text-center">
+				<div class="btn-group">
+					<input type="button" value="Back" ng-click="go('/')" class="btn btn-default">
+					<input type="submit" class="btn btn-primary">
+				</div>
+			</div>
+
+		</form>
+		<!-- end nis //-->
+
+		<!-- mar //-->
+		<form ng-submit="submitMAR()" name="mar_form" ng-show="current_user_grp === 'mar'">
+			<h3 class="text-center">MAR</h3>
+			* All fields are required<br>
+			<input type="checkbox" name="cb1" required> test 1
+			<p class="comment">
+			And a whole lot<br>
+			 more stuff<br>
+			here</p>
+
+			<div class="text-center">
+				<div class="btn-group">
+					<label for="cb1"><span ng-show="mar_form.cb1.$touched && mar_form.cb1.$invalid"><br>The field above is required</span></label><br>
+					<input type="button" value="Back" ng-click="go('/')" class="btn btn-default">
+					<input type="submit" class="btn btn-primary">
+				</div>
+			</div>
+
+		</form>
+		<!-- end mar //-->
+
+		<!-- gdm //-->
+		<form ng-submit="submitGDM()" name="gdm_form" ng-show="current_user_grp === 'gdm'">
+			<h3 class="text-center">GDM</h3>
+			* All fields are required<br>
+			<input type="checkbox" name="cb1" required> test 1
+			<p class="comment">
+			And a whole lot<br>
+			 more stuff<br>
+			here</p>
+
+			<div class="text-center">
+				<div class="btn-group">
+					<label for="cb1"><span ng-show="gdm_form.cb1.$touched && gdm_form.cb1.$invalid"><br>The field above is required</span></label><br>
+					<input type="button" value="Back" ng-click="go('/')" class="btn btn-default">
+					<input type="submit" class="btn btn-primary">
+				</div>
+			</div>
+			
+		</form>
+		<!-- end gdm //-->
+	</div>
+
+	<!-- liv //-->
+	<table ng-show="{{show_summary == true}}" border="0" cellpadding="5" cellspacing="0">
+		<tr>
+			<th align="right" width="10%">SKU</th>
+			<td>{{ sku }}</td>
+		</tr>
+		<tr>
+			<th align="right">NAME</th>
+			<td>{{ name | UCFirst }}</td>
+		</tr>
+		<tr>
+			<th align="right">MAD</th>
+			<td>Approved by {{ mad_completed_by }} on {{ mad_completed | date : "medium" }}</td>
+		</tr>
+		<tr>
+			<th align="right">NIS</th>
+			<td>Approved by {{ nis_completed_by }} on {{ nis_completed | date : "medium" }}</td>
+		</tr>
+		<tr>
+			<th align="right">MAR</th>
+			<td>Approved by {{ mar_completed_by }} on {{ mar_completed | date : "medium" }}</td>
+		</tr>
+		<tr>
+			<th align="right">GDM</th>
+			<td>Approved by {{ gdm_completed_by }} on {{ gdm_completed | date : "medium" }}</td>
+		</tr>
+		<tr>
+			<th align="right">LIV</th>
+			<td>Live on {{ liv_completed | date : "medium" }}</td>
+		</tr>
+	</table>
+
+</div>

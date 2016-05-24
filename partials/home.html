@@ -1,0 +1,43 @@
+<!-- search //-->
+<div class="form-group">
+	<input type="search" class="form-control" ng-model="searchword" id="search" placeholder="e.g. 001 or mouse...">
+</div>	
+<!-- container //-->
+<div ng-controller="HomeCtrl">
+	<table border="0" cellpadding="10" cellspacing="0" id="products" align="center" width="100%" class="table table-striped">
+		<tbody>
+		<tr>
+			<th align="left">SKU</th>
+			<th align="left">NAME</th>
+			<th>MAD</th>
+			<th>NIS</th>
+			<th>MAR</th>
+			<th>GDM</th>
+			<th>LIV</th>
+		</tr>
+		<tr ng-repeat="p in products | filter:searchword">
+			<td>{{ p.sku | UCFirst }}</td>
+			<td>{{ p.name | UCFirst }}</td>
+			<td>
+				<a href="#{{p.sku}}" ng-show="current_user_grp === 'mad'">Info</a>
+				<span ng-show="current_user_grp !== 'mad' && {{p.mad}}.completed !==''" class="done">&#10004;</span>
+			</td>
+			<td>
+				<a href="#{{p.sku}}" ng-show="current_user_grp === 'nis' && {{p.mad}}.completed !==''">Info</a>
+				<span ng-show="current_user_grp !== 'nis' && {{p.nis}}.completed !==''" class="done">&#10004;</span>
+			</td>
+			<td>
+				<a href="#{{p.sku}}" ng-show="current_user_grp === 'mar' && {{p.nis}}.completed !==''">Info</a>
+				<span ng-show="current_user_grp !== 'mar' && {{p.mar}}.completed !==''" class="done">&#10004;</span>
+			</td>
+			<td>
+				<a href="#{{p.sku}}" ng-show="current_user_grp === 'gdm' && {{p.mar}}.completed !==''">Info</a>
+				<span ng-show="current_user_grp !== 'gdm' && {{p.gdm}}.completed !==''" class="done">&#10004;</span>
+			</td>
+			<td>
+				<a href="#{{p.sku}}" ng-show="{{p.liv.completed !== ''}}">Info</a>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
